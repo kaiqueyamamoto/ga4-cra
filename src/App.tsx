@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-import TagManager from 'react-gtm-module';
 
 // Importa as páginas
 import Home from './pages/Home';
@@ -11,26 +9,11 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
 import FAQ from './pages/FAQ';
+import usePageView from './hooks/tag';
 
 const App: React.FC = () => {
-  useEffect(() => {
-    const tagManagerArgs = { gtmId: 'GTM-N8X2MKP' };
-    TagManager.initialize(tagManagerArgs);
-  }, []);
-
-  // Função para enviar eventos personalizados
-  const sendEventToGTM = (
-    eventName: string,
-    eventCategory: string,
-    eventLabel: string,
-  ) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: eventName,
-      category: eventCategory,
-      label: eventLabel,
-    });
-  };
+  // Hook para disparar o evento page_view
+  usePageView();
 
   return (
     <Router>
@@ -38,68 +21,25 @@ const App: React.FC = () => {
       <nav>
         <ul>
           <li>
-            <Link
-              to="/"
-              onClick={() => sendEventToGTM('navigation', 'Menu Click', 'Home')}
-            >
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link
-              to="/about"
-              onClick={() =>
-                sendEventToGTM('navigation', 'Menu Click', 'About')
-              }
-            >
-              About
-            </Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link
-              to="/contact"
-              onClick={() =>
-                sendEventToGTM('navigation', 'Menu Click', 'Contact')
-              }
-            >
-              Contact
-            </Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link
-              to="/services"
-              onClick={() =>
-                sendEventToGTM('navigation', 'Menu Click', 'Services')
-              }
-            >
-              Services
-            </Link>
+            <Link to="/services">Services</Link>
           </li>
           <li>
-            <Link
-              to="/portfolio"
-              onClick={() =>
-                sendEventToGTM('navigation', 'Menu Click', 'Portfolio')
-              }
-            >
-              Portfolio
-            </Link>
+            <Link to="/portfolio">Portfolio</Link>
           </li>
           <li>
-            <Link
-              to="/blog"
-              onClick={() => sendEventToGTM('navigation', 'Menu Click', 'Blog')}
-            >
-              Blog
-            </Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <li>
-            <Link
-              to="/faq"
-              onClick={() => sendEventToGTM('navigation', 'Menu Click', 'FAQ')}
-            >
-              FAQ
-            </Link>
+            <Link to="/faq">FAQ</Link>
           </li>
         </ul>
       </nav>
