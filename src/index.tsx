@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
 );
 
 const tagManagerArgs = {
-  gtmId: 'GTM-NS6RSHGF', // Substitua pelo seu GTM ID
+  gtmId: 'GTM-5Q4TWLLR', // Substitua pelo seu GTM ID
 };
 TagManager.initialize(tagManagerArgs);
 
