@@ -4,13 +4,24 @@ import TagManager from 'react-gtm-module';
 const usePageView = () => {
   useEffect(() => {
     const handlePageView = () => {
+      const eventData = {
+        event: 'page_view',
+        page_path: window.location.pathname,
+        page_title: document.title,
+      };
+
+      // Log para verificar os dados antes de enviá-los
+      console.log(
+        'Disparando evento page_view com os seguintes dados:',
+        eventData,
+      );
+
       TagManager.dataLayer({
-        dataLayer: {
-          event: 'page_view',
-          page_path: window.location.pathname,
-          page_title: document.title,
-        },
+        dataLayer: eventData,
       });
+
+      // Log para verificar se o evento foi enviado ao dataLayer
+      console.log('Evento enviado ao dataLayer:', eventData);
     };
 
     // Disparar o evento na inicialização
