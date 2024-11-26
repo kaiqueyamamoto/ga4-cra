@@ -44,3 +44,16 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Install all libs for developer
+
+```shell
+npm install react-router-dom
+npm install @types/react-router-dom
+npm install axios @types/axios
+npm install styled-components
+npm install @types/styled-components
+npm install eslint prettier eslint-plugin-react eslint-plugin-react-hooks eslint-config-prettier eslint-plugin-prettier -D
+npm install webpack webpack-dev-server --save-dev
+
+```
